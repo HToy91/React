@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import './App.css';
+import Modal from "./Modal.tsx";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
-  const [completed, setCompleted] = useState(false);
+  const [selectedTaskId, setSelectedTaskId] = useState<number | null>(null);
 
   const [tasks, setTasks] = useState([
     {id: 1, text: "Learn React", completed: false},
@@ -11,17 +12,27 @@ function App() {
     {id: 3, text: "Pass Class", completed: false}
   ]);
 
-  function openModalHandler() {
+  function openModalHandler(taskId: number) {
     setShowModal(true);
+    setSelectedTaskId(taskId)
   }
 
   function closeModalHandler() {
     setShowModal(false);
+    setSelectedTaskId(null);
   }
 
   function completeTaskHandler() {
-    setCompleted(true);
+    setTasks((prevTasks) =>
+        prevTasks.map((task) =>
+            task.id === selectedTaskId
+                ? {...task, completed: true}
+                : task
+        )
+    );
+
     setShowModal(false);
+    setSelectedTaskId(null);
   }
 
   return (
@@ -30,26 +41,19 @@ function App() {
           {tasks.map((task) => (
             <div className="card" key={task.id}>
               <div className="card-content">
-                <h2 style={{textDecoration: completed ? "line-through" : "none"}}>{task.text}</h2>
-                <button className="btn" onClick={() => openModalHandler()}>Done</button>
+                <h2 style={{textDecoration: task.completed ? "line-through" : "none"}}>{task.text}</h2>
+                <button className="btn" onClick={() => openModalHandler(task.id)}>Done</button>
               </div>
             </div>
           ))}
         </div>
 
         {showModal && (
-            <div>
-              <div className="modal">
-                <p>Did you complete this task?</p>
-
-                <button className="btn btn-highlight" onClick={() => closeModalHandler()}>Cancel</button>
-                <button className="btn" onClick={() => completeTaskHandler()}>Confirm</button>
-              </div>
-
-              <div className="backdrop" onClick={() => closeModalHandler()}></div>
-            </div>
+            <Modal
+              completeTaskHandler={completeTaskHandler}
+              closeModalHandler={closeModalHandler}
+            />
         )}
-
       </>
   );
 }
