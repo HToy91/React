@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import Modal from "./Modal.tsx";
+import TaskCard from "./TaskCard.tsx";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -44,12 +45,11 @@ function App() {
       <>
         <div className="todo-container">
           {tasks.map((task) => (
-            <div className="card" key={task.id}>
-              <div className="card-content">
-                <h2 style={{textDecoration: task.completed ? "line-through" : "none"}}>{task.text}</h2>
-                <button className="btn" onClick={() => openModalHandler(task.id)}>Done</button>
-              </div>
-            </div>
+            <TaskCard
+              key={task.id}
+              task={task}
+              openModalHandler={openModalHandler}
+            />
           ))}
         </div>
 
