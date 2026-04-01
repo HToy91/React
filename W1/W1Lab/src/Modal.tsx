@@ -1,7 +1,10 @@
 type ModalProps = {
+    // Props must be parameterless functions that don't return anything
     completeTaskHandler: () => void;
     closeModalHandler: () => void;
 }
+
+// Props must match ModalProps type
 function Modal({completeTaskHandler, closeModalHandler}: ModalProps) {
     return (
         <>
