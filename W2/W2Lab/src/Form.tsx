@@ -1,13 +1,19 @@
-type FormProps = {
-    form: HTMLFormElement,
-    setForm: () => void,
-    clearForm: () => void,
-    submitForm: () => void,
-    error: Error,
-    emailError: Error,
+type Form = {
+    firstName: string,
+    lastName: string,
+    email: string,
 }
 
-function Form({form, setForm}    : FormProps) {
+type FormProps = {
+    form: Form,
+    setForm: (p: { firstName: string; lastName: string; email: string }) => void,
+    clearForm: () => void,
+    submitForm: () => void,
+    error: string,
+    emailError: string,
+}
+
+function Form({form, setForm, clearForm, submitForm, error, emailError}    : FormProps) {
     return (
         <div className="card">
             <h2 id="formTitle">Register</h2>
