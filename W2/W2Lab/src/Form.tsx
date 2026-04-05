@@ -13,7 +13,7 @@ type FormProps = {
     emailError: string,
 }
 
-function Form({form, setForm, clearForm, submitForm, error, emailError}    : FormProps) {
+function Form({form, setForm, clearForm, submitForm, error, emailError} : FormProps) {
     return (
         <div className="card">
             <h2 id="formTitle">Register</h2>
