@@ -8,6 +8,8 @@ function App() {
         email: '',
     })
 
+    const [showForm, setShowForm] = useState<boolean>(false)
+
     const [error, setError] = useState('');
     const [emailError, setEmailError] = useState('');
 
@@ -20,8 +22,7 @@ function App() {
     };
 
     const displayForm = () => {
-        const formElement = document.querySelector('.card');
-        formElement?.classList.add("hidden");
+        setShowForm(true);
     }
 
     const submitForm = () => {
@@ -31,11 +32,13 @@ function App() {
                 return;
             }
         }
-        setError('');
 
-        const formElement = document.querySelector('.card');
-        formElement?.classList.remove("hidden");
-        clearForm();
+        if (emailError) {
+            return;
+        }
+
+        setError('');
+        setShowForm(false);
     }
 
     useEffect(() => {
@@ -43,10 +46,19 @@ function App() {
             ? 'Invalid email address'
             : '');
     }, [form.email])
+
+    useEffect(() => {
+        if (!showForm) {
+            clearForm();
+            setError('')
+            setEmailError('')
+        }
+    }, [showForm])
+
   return (
     <div className="container">
-        <button id="formName" onClick={displayForm}><h1>Awesome Form</h1></button>
-      <div className="card">
+        {!showForm && <button id="formName" onClick={displayForm}><h1>Awesome Form</h1></button>}
+        {showForm && <div className="card">
           <h2 id="formTitle">Register</h2>
 
           <div className="form-row">
@@ -76,7 +88,6 @@ function App() {
               />
           </div>
 
-
           <div className="form-row form-btns">
               <div>
                   <button className="clear-btn" onClick={clearForm}>Clear</button>
@@ -88,7 +99,7 @@ function App() {
 
           {error && <div className="error">{error}</div>}
           {emailError && <div className="error">{emailError}</div>}
-      </div>
+      </div>}
     </div>
   )
 }
