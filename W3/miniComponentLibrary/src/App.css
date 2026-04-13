@@ -1,0 +1,23 @@
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    margin: 10px;
+    height: 100px;
+    background-color: #ccc;
+}
+
+.text {
+    text-align: center;
+    font-size: 10px;
+    color: white;
+}
+
+.button {
+    background-color: blue;
+    color: black;
+}
+.button:hover {
+    cursor: pointer;
+}
