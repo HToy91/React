@@ -26,7 +26,8 @@ function App() {
           Post Data
         </button>
         <hr />
-        {showFetchData ? <FetchingData /> : <PostingData />}
+        {showFetchData && <FetchingData />}
+        {showPostData && <PostingData />}
       </div>
   );
 }
