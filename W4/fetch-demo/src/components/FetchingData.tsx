@@ -1,8 +1,9 @@
 import Loading from "./Loading";
-import useFetch from "../hooks/useFetch.tsx";
+// import useFetch from "../hooks/useFetch.tsx";
+import useFetchProducts from "../hooks/useFetchProducts.tsx";
 const FetchingData = () => {
-    const {data: products, error, loading} = useFetch("posts");
-
+    // const {data: products, error, loading} = useFetch("posts");
+    const {products, error, loading} = useFetchProducts();
     if (loading) {
         return <Loading />;
     }
