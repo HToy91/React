@@ -411,3 +411,87 @@ body {
     transform: scale(1);
   }
 }
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+}
+
+#formTitle {
+  text-decoration: underline;
+  margin-bottom: 50px;
+}
+
+.form-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px;
+}
+
+button {
+  padding: 10px 14px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 20px;
+}
+
+button:hover {
+  background: #1e40af;
+}
+
+.clear-btn {
+  background-color: darkgray;
+}
+
+.clear-btn:hover {
+  background-color: gray;
+}
+
+#formName {
+  background-color: lightgreen;
+}
+
+#formName:hover {
+  background-color: green;
+}
+
+.error {
+  color: red;
+}
