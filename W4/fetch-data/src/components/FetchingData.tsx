@@ -13,7 +13,7 @@ const FetchingData = () => {
     }
 
     return (
-        <>
+        <div className={"json-list"}>
             {products.length && (products.map((product) => {
                 return (
                     <div key={product.id}>
@@ -22,7 +22,7 @@ const FetchingData = () => {
                     </div>
                 );
             }))}
-        </>
+        </div>
     );
 };
 

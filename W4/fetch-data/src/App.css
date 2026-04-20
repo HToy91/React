@@ -495,3 +495,8 @@ button:hover {
 .error {
   color: red;
 }
+
+.json-list {
+  height: 400px;
+  overflow-y: auto;
+}

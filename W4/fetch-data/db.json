@@ -197,6 +197,12 @@
       "title": "Test 3",
       "body": "this is test 3",
       "id": "6fyrLXC7YuM"
+    },
+    {
+      "userId": 3,
+      "title": "test 4",
+      "body": "this test4",
+      "id": "BDQN0t9ivOo"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
