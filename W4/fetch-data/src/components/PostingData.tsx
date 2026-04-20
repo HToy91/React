@@ -1,5 +1,6 @@
+import Form from "./Form.tsx";
 const PostingData = () => {
-    return <div>Posting data starter</div>
+    return <Form />
 }
 
 export default PostingData;
