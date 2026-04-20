@@ -7,14 +7,6 @@ function App() {
   const [showFetchData, setShowFetchData] = useState(true);
   const [showPostData, setPostData] = useState(false);
 
-  const [Form, setForm] = useState({
-    title: '',
-    body: "",
-  })
-
-  const [showForm, setShowForm] = useState(false);
-
-
   const handleShowFetchDataDemo = () => {
     setShowFetchData(true);
     setPostData(false);
