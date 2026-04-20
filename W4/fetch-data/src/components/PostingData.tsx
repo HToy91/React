@@ -64,7 +64,7 @@ const PostingData = () => {
                     form={form}
                     setForm={setForm}
                     submitForm={submitForm}
-                    error={error}
+                    error={formError}
                 />)
                 : (<div className={"card"}>
                     <h2>Post Created</h2>
