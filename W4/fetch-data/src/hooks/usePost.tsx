@@ -1,8 +1,7 @@
 import {useState} from "react";
 import axios from "axios";
-import * as url from "node:url";
 
-const baseUrl = `${baseUrl}${url}`;
+const baseUrl = "http://localhost:3000/";
 
 const usePost = (url) => {
     const [data, setData] = useState([]);
@@ -14,7 +13,7 @@ const usePost = (url) => {
         setError("");
 
         try {
-            const response = await axios.get(`${baseUrl}${url}`, newData)
+            const response = await axios.post(`${baseUrl}${url}`, newData)
             setData(response.data);
         } catch (error) {
             setError(`An error occurred: ${error}`);
@@ -24,3 +23,5 @@ const usePost = (url) => {
     }
     return {data, loading, error, postData};
 }
+
+export default usePost;
