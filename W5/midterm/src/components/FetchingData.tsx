@@ -1,8 +1,10 @@
 import useFetch from "../hooks/useFetch.tsx";
 import Loading from "./Loading.tsx";
-import {NavLink, Outlet, useParams} from 'react-router-dom';
+import {useNavigate, Outlet, useParams} from 'react-router-dom';
 
 const FetchingData = () => {
+
+    const navigate = useNavigate();
     const {data: products, loading, error} = useFetch('products');
     const {id} = useParams();
 
@@ -16,16 +18,16 @@ const FetchingData = () => {
     return (
         <>
             {!id && (
-                <div className={'product-list'}>
+                <button className={'product-list'}>
                     {products.length && (products.map((product) => {
                         return (
-                            <div key={product.id} className={"product"}>
+                            <div key={product.id} className={"product"} onClick={() => navigate(`${product.id}`)}>
                                 <img src={product.image}/>
-                                <NavLink to={`${product.id}`}>{product.title}</NavLink>
+                                <p>{product.title}</p>
                             </div>
                         )
                     }))}
-                </div>
+                </button>
             )}
 
             <Outlet />

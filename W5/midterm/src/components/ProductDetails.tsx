@@ -20,7 +20,7 @@ const ProductDetails = () => {
             <div className={"img-container"}>
                 <img src={product.image}/>
 
-                <button onClick={() => navigate('/products')}>
+                <button onClick={() => navigate('/products')} className={"back-btn"}>
                     Go Back
                 </button>
             </div>
