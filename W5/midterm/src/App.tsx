@@ -1,15 +1,16 @@
-import { useState } from 'react'
 import './App.css'
+import {NavLink, Outlet} from 'react-router-dom';
 
 function App() {
 
-
   return (
     <>
-      <div className={"nav-bar"}>
-          <div>Home</div>
-          <div>Products</div>
-      </div>
+        <div className={'nav-bar'}>
+            <NavLink to={'/'}>Home</NavLink>
+            <NavLink to={'/products'}>Products</NavLink>
+        </div>
+
+        <Outlet />
     </>
   )
 }
