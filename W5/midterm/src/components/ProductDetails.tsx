@@ -24,7 +24,13 @@ const ProductDetails = () => {
                     Go Back
                 </button>
             </div>
-            <div>{product.title}</div>
+            <div className="details">
+                <div><b>{product.title}</b></div>
+                <hr/>
+                <div>{product.category}</div>
+                <hr/>
+                <div>{product.description}</div>
+            </div>
         </div>
     )
 }
