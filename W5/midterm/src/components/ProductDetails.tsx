@@ -1,8 +1,10 @@
-import {NavLink, useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import useFetch from "../hooks/useFetch.tsx";
 import Loading from "./Loading.tsx";
 
 const ProductDetails = () => {
+    const navigate = useNavigate();
+
     const { id } = useParams();
     const {data: product, loading, error} = useFetch(`products/${id}`);
 
@@ -14,16 +16,16 @@ const ProductDetails = () => {
     }
 
     return (
-        <>
-            <div>
+        <div className="product-details">
+            <div className={"img-container"}>
                 <img src={product.image}/>
 
-                <button>
-                    <NavLink to={'/products'}>Go back</NavLink>
+                <button onClick={() => navigate('/products')}>
+                    Go Back
                 </button>
             </div>
             <div>{product.title}</div>
-        </>
+        </div>
     )
 }
 
