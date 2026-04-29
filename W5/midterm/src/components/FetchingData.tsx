@@ -22,7 +22,7 @@ const FetchingData = () => {
                     {products.length && (products.map((product) => {
                         return (
                             <div key={product.id} className={"product"} onClick={() => navigate(`${product.id}`)}>
-                                <img src={product.image}/>
+                                <img src={product.image} alt={"Error Loading Image"}/>
                                 <p>{product.title}</p>
                             </div>
                         )

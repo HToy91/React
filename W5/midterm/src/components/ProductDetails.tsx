@@ -18,7 +18,7 @@ const ProductDetails = () => {
     return (
         <div className="product-details">
             <div className={"img-container"}>
-                <img src={product.image}/>
+                <img src={product.image} alt={"Error Loading Image"}/>
 
                 <button onClick={() => navigate('/products')} className={"back-btn"}>
                     Go Back
