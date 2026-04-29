@@ -19,7 +19,7 @@
 }
 
 .nav-bar a:hover {
-    border-color: white;
+     border-color: white;
 }
 
 .product {
@@ -34,7 +34,8 @@
 .product:hover {
     background-color: lightgray;
     box-shadow: 1rem 1rem 2rem #000;
-    transition: 0.2s ease;
+    transition: 0.3s ease;
+    transform: scale(1.1);
 }
 
 .product-list {
