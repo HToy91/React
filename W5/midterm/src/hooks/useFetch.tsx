@@ -13,7 +13,7 @@ const useFetch = (url: string)=> {
             try {
                 const response = await axios.get(`${baseUrl}${url}`);
 
-                // await new Promise(resolve => setTimeout(resolve, 3000));
+                await new Promise(resolve => setTimeout(resolve, 3000));
 
                 setData(response.data);
             } catch (error) {
