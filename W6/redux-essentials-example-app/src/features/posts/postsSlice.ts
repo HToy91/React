@@ -1,6 +1,7 @@
 // Import the `PayloadAction` TS type
 import { createSlice, PayloadAction, nanoid } from '@reduxjs/toolkit'
 import { sub } from 'date-fns'
+import { RootState } from '@/app/store'
 
 export interface Reactions {
   thumbsUp: number
@@ -33,8 +34,22 @@ const initialReactions: Reactions = {
 }
 
 const initialState: Post[] = [
-  { id: '1', title: 'First Post', content: 'Hello!', user: '0', date: sub(new Date(), { minutes: 10}).toISOString()},
-  { id: '2', title: 'Second Post', content: 'More text', user: '2', date: sub(new Date(), { minutes: 10}).toISOString()},
+  {
+    id: '1',
+    title: 'First Post',
+    content: 'Hello!',
+    user: '0',
+    date: sub(new Date(), { minutes: 10}).toISOString(),
+    reactions: initialReactions
+  },
+  {
+    id: '2',
+    title: 'Second Post',
+    content: 'More text',
+    user: '2',
+    date: sub(new Date(), { minutes: 10}).toISOString(),
+    reactions: initialReactions
+  },
 ]
 
 // Create the slice and pass in the initial state
@@ -53,7 +68,8 @@ const postsSlice = createSlice({
             date: new Date().toISOString(),
             title,
             content,
-            user: userId
+            user: userId,
+            reactions: { ...initialReactions },
           }
         }
       }

@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { useAppSelector } from '@/app/hooks'
 import { selectPostById } from './postsSlice'
+import { ReactionButtons } from './ReactionButtons'
 
 export const SinglePostPage = () => {
     const {postId} = useParams()
@@ -23,6 +24,7 @@ export const SinglePostPage = () => {
                 <Link to={`/editPost/${post.id}`} className="button">
                     Edit Post
                 </Link>
+              <ReactionButtons post={post} />
             </article>
         </section>
     )

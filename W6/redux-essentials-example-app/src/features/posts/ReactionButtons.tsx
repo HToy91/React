@@ -1,6 +1,7 @@
 import { useAppDispatch } from '@/app/hooks'
-import type { Post, ReactionName, reactionAdded } from './postsSlice'
+import type { Post, ReactionName } from './postsSlice'
 import React from 'react'
+import { reactionAdded } from './postsSlice'
 
 const reactionEmoji: Record<ReactionName, string> = {
   thumbsUp: '👍',
