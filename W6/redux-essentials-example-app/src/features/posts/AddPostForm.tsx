@@ -3,13 +3,14 @@ import { nanoid} from '@reduxjs/toolkit'
 import {useAppDispatch, useAppSelector} from '@/app/hooks'
 import { type Post, postAdded} from '@/features/posts/postsSlice'
 import { selectAllUsers } from '@/features/users/usersSlice'
+import { selectCurrentUsername } from '@/features/auth/authSlice'
 
 // TS types for the input fields
 // See: https://epicreact.dev/how-to-type-a-react-form-on-submit-handler/
 interface AddPostFormFields extends HTMLFormControlsCollection {
   postTitle: HTMLInputElement
   postContent: HTMLTextAreaElement
-  postAuthor: HTMLSelectElement
+  // postAuthor: HTMLSelectElement
 }
 interface AddPostFormElements extends HTMLFormElement {
   readonly elements: AddPostFormFields
@@ -19,6 +20,7 @@ export const AddPostForm = () => {
   // Get the `dispatch` method from the store
   const dispatch = useAppDispatch()
   const users = useAppSelector(selectAllUsers)
+  const userId = useAppSelector(selectCurrentUsername)!
 
   const handleSubmit = (e: React.FormEvent<AddPostFormElements>) => {
     // Prevent server submission
@@ -27,7 +29,7 @@ export const AddPostForm = () => {
     const { elements } = e.currentTarget
     const title = elements.postTitle.value
     const content = elements.postContent.value
-    const userId = elements.postAuthor.value
+    // const userId = elements.postAuthor.value
 
     dispatch(postAdded(title, content, userId))
 
@@ -61,11 +63,11 @@ export const AddPostForm = () => {
           defaultValue=""
           required
         />
-        <label htmlFor="postAuthor">Author:</label>
-        <select name="postAuthor" id="postAuthor" required>
-          <option value=""></option>
-          {userOptions}
-        </select>
+        {/*<label htmlFor="postAuthor">Author:</label>*/}
+        {/*<select name="postAuthor" id="postAuthor" required>*/}
+        {/*  <option value=""></option>*/}
+        {/*  {userOptions}*/}
+        {/*</select>*/}
         <label htmlFor="postContent">Content:</label>
         <textarea
           name="postContent"

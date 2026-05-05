@@ -2,11 +2,13 @@ import { useParams, Link } from 'react-router-dom'
 import { useAppSelector } from '@/app/hooks'
 import { selectPostById } from './postsSlice'
 import { ReactionButtons } from './ReactionButtons'
+import { selectCurrentUsername } from '@/features/auth/authSlice'
 
 export const SinglePostPage = () => {
     const {postId} = useParams()
 
     const post = useAppSelector(state => selectPostById(state, postId!))
+    const currentUsername = useAppSelector(selectCurrentUsername)
 
     if (!post) {
         return (
@@ -16,15 +18,20 @@ export const SinglePostPage = () => {
         )
     }
 
+    const canEdit = currentUsername === post.user
+
     return (
         <section>
             <article className="post">
                 <h2>{post.title}</h2>
                 <p className="post-content">{post.content}</p>
-                <Link to={`/editPost/${post.id}`} className="button">
-                    Edit Post
-                </Link>
               <ReactionButtons post={post} />
+
+              {canEdit && (
+                <Link to={`/editPost/${post.id}`} className='button'>
+                  Edit Post
+                </Link>
+              )}
             </article>
         </section>
     )
