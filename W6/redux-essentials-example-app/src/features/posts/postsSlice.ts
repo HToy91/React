@@ -3,6 +3,8 @@ import { createSlice, PayloadAction, nanoid } from '@reduxjs/toolkit'
 import { sub } from 'date-fns'
 import { RootState } from '@/app/store'
 
+import { userLoggedOut } from '@/features/auth/authSlice'
+
 export interface Reactions {
   thumbsUp: number
   tada: number
@@ -86,13 +88,20 @@ const postsSlice = createSlice({
     reactionAdded(
         state,
         action: PayloadAction<{ postId: string; reaction: ReactionName }>
-    ) {
+      ) {
       const { postId, reaction } = action.payload
       const existingPost = state.find(post => post.id === postId)
 
       if (existingPost) {
         existingPost.reactions[reaction]++
       }
+    },
+    extraReducers: (builder) => {
+      // Pass the action creator to `builder.addCase()`
+      builder.addCase(userLoggedOut, (state) => {
+        // Clear out the list of posts whenever the user logs out
+        return []
+      })
     }
   }
 })
