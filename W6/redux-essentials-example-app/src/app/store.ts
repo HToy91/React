@@ -1,4 +1,4 @@
-import { configureStore, Action } from '@reduxjs/toolkit';
+import { configureStore, Action, ThunkAction } from '@reduxjs/toolkit';
 
 interface CounterState {
   value: number;
@@ -39,3 +39,5 @@ export type AppStore = typeof store;
 export type AppDispatch = typeof store.dispactch
 // Same for the `RootState` type
 export type RootState = returnType<typeof store.getState>
+// Export a reusable type for handwritten thunks
+export type AppThunk = ThunkAction<void, RootState, unkown, Action>
