@@ -166,5 +166,5 @@ export const selectAllPosts = (state: RootState) => state.posts.posts
 export const selectPostById = (state: RootState, postId: string) =>
     state.posts.posts.find(post => post.id === postId)
 
-export const selectPostsStatus = (stat: RootState) => stat.posts.status
+export const selectPostsStatus = (state: RootState) => state.posts.status
 export const selectPostsError = (state: RootState) => state.posts.error
