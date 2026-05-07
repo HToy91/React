@@ -2,7 +2,7 @@ import './App.css';
 import Card from './components/Card';
 import Button from './components/Button';
 import ToggleSwitch from './components/ToggleSwitch';
-import {ThemeContext, themes} from "./themeContext.jsx";
+import {ThemeContext, themes} from "./themeContext/ThemeContext.jsx";
 import {useState} from "react";
 import Header from "./components/Header";
 

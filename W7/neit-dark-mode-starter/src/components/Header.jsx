@@ -1,4 +1,4 @@
-import { ThemeContext} from "../themeContext.jsx"
+import { ThemeContext} from "../themeContext/ThemeContext.jsx"
 import { useContext } from "react"
 
 const Header = ({ children}) => {
