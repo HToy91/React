@@ -1,0 +1,36 @@
+import './App.css';
+import Card from './components/Card';
+import Button from './components/Button';
+import ToggleSwitch from './components/ToggleSwitch';
+import {ThemeContext, themes} from "./themeContext.jsx";
+import {useState} from "react";
+
+function App() {
+    const [theme, setTheme] = useState(themes.light)
+
+    const toggleTheme = () => {
+        setTheme((prevValue) => {
+            return prevValue === themes.dark ? themes.light : themes.dark;
+        })
+    }
+  return (
+    <ThemeContext.Provider value={{ theme }}>
+        <div className="App">
+            <header className="header">
+                <div className="header-content">
+                    <h2>Dark Mode Exercise</h2>
+                    <ToggleSwitch onToggle={toggleTheme} />
+                </div>
+            </header>
+            <div className="main-container">
+                <Card style={{ justifyContent: 'space-between' }}>
+                    A card with stuff
+                    <Button label="Click me" onClick={() => {}} />
+                </Card>
+            </div>
+        </div>
+    </ThemeContext.Provider>
+  );
+}
+
+export default App;
