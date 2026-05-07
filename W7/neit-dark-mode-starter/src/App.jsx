@@ -4,6 +4,7 @@ import Button from './components/Button';
 import ToggleSwitch from './components/ToggleSwitch';
 import {ThemeContext, themes} from "./themeContext.jsx";
 import {useState} from "react";
+import Header from "./components/Header";
 
 function App() {
     const [theme, setTheme] = useState(themes.light)
@@ -13,14 +14,15 @@ function App() {
             return prevValue === themes.dark ? themes.light : themes.dark;
         })
     }
+
   return (
     <ThemeContext.Provider value={{ theme }}>
-        <div className="App">
+        <div className="App" style={{ backgroundColor: theme.background, color: theme.foreground, minHeight: '100vh' }}>
             <header className="header">
-                <div className="header-content">
+                <Header className="header-content">
                     <h2>Dark Mode Exercise</h2>
                     <ToggleSwitch onToggle={toggleTheme} />
-                </div>
+                </Header>
             </header>
             <div className="main-container">
                 <Card style={{ justifyContent: 'space-between' }}>
