@@ -2,8 +2,8 @@ import './App.css';
 import Card from './components/Card';
 import Button from './components/Button';
 import ToggleSwitch from './components/ToggleSwitch';
-import {ThemeContext, themes} from "./ThemeContext.jsx";
-import {useEffect, useState} from "react";
+import { ThemeContext } from "./ThemeContext.jsx";
+import { useEffect } from "react";
 import Header from "./components/Header";
 import { useContext } from "react";
 
