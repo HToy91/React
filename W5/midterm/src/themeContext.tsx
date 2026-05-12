@@ -1,14 +1,14 @@
 import { createContext, useState } from 'react'
-    export const themes = {
-        light: {
-            foreground: '#242526',
-            background: '#ffffff',
-        },
-        dark: {
-            foreground: '#fff',
-            background: '#242526',
-        },
-    }
+export const themes = {
+    light: {
+        foreground: '#242526',
+        background: '#ffffff',
+    },
+    dark: {
+        foreground: 'green',
+        background: '#242526',
+    },
+}
 
     // Let our context know what properties to expect
 export const ThemeContext = createContext({
@@ -21,7 +21,7 @@ export const ThemeProvider = ({ children }) => {
 
     const toggleTheme = () => {
         setTheme((prevValue) =>
-            prevValue === themes.dark? themes.light : themes.dark
+            prevValue === themes.dark ? themes.light : themes.dark
         )
     }
 

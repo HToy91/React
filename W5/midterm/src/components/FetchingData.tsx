@@ -1,12 +1,16 @@
 import useFetch from "../hooks/useFetch.tsx";
 import Loading from "./Loading.tsx";
 import {useNavigate, Outlet, useParams} from 'react-router-dom';
+import {useContext} from "react";
+import {ThemeContext} from "../themeContext.tsx";
 
 const FetchingData = () => {
 
     const navigate = useNavigate();
     const {data: products, loading, error} = useFetch('products');
     const {id} = useParams();
+
+    const { theme } = useContext(ThemeContext)
 
     if (loading) {
         return <Loading />;

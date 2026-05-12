@@ -1,15 +1,15 @@
 import { useContext } from "react";
 import { ThemeContext } from "../themeContext";
 
-export const ToggleSwitch = () => {
+export const ToggleSwitch = ({ onToggle }) => {
     const { toggleTheme } = useContext(ThemeContext)
 
     return (
         <>
-            <div className='switch' >
+            <label className='switch' >
                 <input type="checkbox" onChange={ toggleTheme } />
                 <span className='slider round'></span>
-            </div>
+            </label>
         </>
     )
 }
