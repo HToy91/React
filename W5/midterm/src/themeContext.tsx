@@ -5,7 +5,7 @@ export const themes = {
         background: '#ffffff',
     },
     dark: {
-        foreground: 'green',
+        foreground: '#ffffff',
         background: '#242526',
     },
 }

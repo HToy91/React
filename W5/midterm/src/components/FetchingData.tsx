@@ -20,12 +20,12 @@ const FetchingData = () => {
     }
 
     return (
-        <>
+        <div style={{ backgroundColor: theme.background, color: theme.foreground }}>
             {!id && (
                 <button className={'product-list'}>
                     {products.length && (products.map((product) => {
                         return (
-                            <div key={product.id} className={"product"} onClick={() => navigate(`${product.id}`)}>
+                            <div key={product.id} className={"product"} onClick={() => navigate(`${product.id}`)} style={{ backgroundColor: theme.background, color: theme.foreground }}>
                                 <img src={product.image} alt={"Error Loading Image"}/>
                                 <p>{product.title}</p>
                             </div>
@@ -35,7 +35,7 @@ const FetchingData = () => {
             )}
 
             <Outlet />
-        </>
+        </div>
     );
 }
 
