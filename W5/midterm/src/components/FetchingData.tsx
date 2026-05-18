@@ -4,7 +4,7 @@ import {useNavigate, Outlet, useParams} from 'react-router-dom';
 import {useContext} from "react";
 import {ThemeContext} from "../themeContext.tsx";
 
-type Product = {
+interface Product {
     id: number;
     title: string;
     image: string;

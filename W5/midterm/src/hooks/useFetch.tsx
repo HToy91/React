@@ -22,7 +22,7 @@ const useFetch = <T,>(url: string)=> {
                 setLoading(false);
             }
         }
-        getData();
+        void getData();
     }, [url]);
 
     return {data, loading, error};

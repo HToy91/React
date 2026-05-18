@@ -24,7 +24,7 @@ const ProductDetails = () => {
     }
 
     if (!product) {
-        return <p>Product Not Found.</p>
+        return <p>Product not found.</p>
     }
 
     return (
