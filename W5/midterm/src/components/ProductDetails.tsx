@@ -2,17 +2,29 @@ import {useNavigate, useParams} from "react-router-dom";
 import useFetch from "../hooks/useFetch.tsx";
 import Loading from "./Loading.tsx";
 
+interface Product {
+    id: number
+    title: string
+    description: string
+    image: string
+    category: string
+}
+
 const ProductDetails = () => {
     const navigate = useNavigate();
 
     const { id } = useParams();
-    const {data: product, loading, error} = useFetch(`products/${id}`);
+    const {data: product, loading, error} = useFetch<Product>(`products/${id}`);
 
     if (loading) {
         return <Loading />;
     }
     if (error.length > 0) {
         return <p>{error}</p>
+    }
+
+    if (!product) {
+        return <p>Product Not Found.</p>
     }
 
     return (

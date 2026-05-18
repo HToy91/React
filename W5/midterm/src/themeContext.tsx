@@ -1,4 +1,5 @@
-import { createContext, useState } from 'react'
+import React, { createContext, useState } from 'react'
+
 export const themes = {
     light: {
         foreground: '#242526',
@@ -12,11 +13,11 @@ export const themes = {
 
     // Let our context know what properties to expect
 export const ThemeContext = createContext({
-    theme: {},
+    theme: themes.light,
     toggleTheme: () => {},
 })
 
-export const ThemeProvider = ({ children }) => {
+export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     const [theme, setTheme] = useState(themes.light)
 
     const toggleTheme = () => {

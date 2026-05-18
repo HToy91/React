@@ -3,8 +3,8 @@ import axios from "axios";
 
 const baseUrl = "http://localhost:3000/";
 
-const useFetch = (url: string)=> {
-    const [data, setData] = useState([]);
+const useFetch = <T,>(url: string)=> {
+    const [data, setData] = useState<T | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
