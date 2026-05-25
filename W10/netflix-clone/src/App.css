@@ -75,6 +75,7 @@ nav h2 {
   width: 300px;
   border-radius: 10px;
   margin-top: 50px;
+  margin-bottom: 10px;
 }
 .Movie-Details-Content {
   display: flex;
@@ -115,3 +116,13 @@ nav h2 {
   border: 2px solid white;
 }
 /*Movie-Details-End*/
+
+/*Watchlist*/
+.watchlist {
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+}
+/*Watchlist-end*/

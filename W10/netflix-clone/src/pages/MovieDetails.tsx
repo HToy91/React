@@ -1,18 +1,26 @@
-import {NavLink, useParams} from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch.ts";
 import type { Movie } from "../types/Movie.ts";
-import { useDispatch } from "react-redux";
-import { addToWatchlist } from "../features/watchlist/watchlistSlice.ts";
+import { useDispatch, useSelector } from "react-redux";
+import type { AppDispatch, RootState } from "../app/store";
+import {
+    addToWatchlist,
+    removeFromWatchlist,
+} from "../features/watchlist/watchlistSlice.ts";
 
 const apiKey =  import.meta.env.VITE_API_KEY;
 
 const MovieDetails = () => {
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
 
     const { id } = useParams();
     const { data, loading, error } = useFetch<Movie>(
         `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`
+    );
+
+    const isInWatchlist = useSelector((state: RootState) =>
+        data ? state.watchlist.movies.some((movie) => movie.id === data.id) : false
     );
 
     if (loading) return <h1>Loading...</h1>
@@ -26,7 +34,17 @@ const MovieDetails = () => {
 
             <img src={imageUrl} alt={data.title}/>
             <p>Rating: ⭐️ {data.vote_average?.toFixed(2)}</p>
-            <button onClick={() => dispatch(addToWatchlist(data))}>＋</button>
+            <button
+                onClick={() =>
+                    dispatch(
+                        isInWatchlist
+                            ? removeFromWatchlist(data.id)
+                            : addToWatchlist(data)
+                    )
+                }
+            >
+                {isInWatchlist ? "−" : "＋"}
+            </button>
 
             <div className="Movie-Details-Content">
                 <h1>{data.title}</h1>
