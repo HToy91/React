@@ -1,10 +1,14 @@
 import {NavLink, useParams} from "react-router-dom";
 import useFetch from "../hooks/useFetch.ts";
 import type { Movie } from "../types/Movie.ts";
+import { useDispatch } from "react-redux";
+import { addToWatchlist } from "../features/watchlist/watchlistSlice.ts";
 
 const apiKey =  import.meta.env.VITE_API_KEY;
 
 const MovieDetails = () => {
+
+    const dispatch = useDispatch();
 
     const { id } = useParams();
     const { data, loading, error } = useFetch<Movie>(
@@ -22,6 +26,7 @@ const MovieDetails = () => {
 
             <img src={imageUrl} alt={data.title}/>
             <p>Rating: ⭐️ {data.vote_average?.toFixed(2)}</p>
+            <button onClick={() => dispatch(addToWatchlist(data))}>＋</button>
 
             <div className="Movie-Details-Content">
                 <h1>{data.title}</h1>

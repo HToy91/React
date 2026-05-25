@@ -100,4 +100,18 @@ nav h2 {
 .Movie-Details a:hover {
   text-decoration: underline;
 }
+.Movie-Details button {
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  font-weight: bold;
+  font-size: 20px;
+}
+.Movie-Details button:hover {
+  border: 2px solid white;
+}
 /*Movie-Details-End*/
