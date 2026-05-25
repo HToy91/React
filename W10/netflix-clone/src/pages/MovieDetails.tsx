@@ -4,12 +4,15 @@ import type { Movie } from "../types/Movie.ts";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../app/store";
 import { addToWatchlist, removeFromWatchlist } from "../features/watchlist/watchlistSlice.ts";
-import {useContext} from "react";
+import {useContext, useState } from "react";
 import {ThemeContext} from "../context/ThemeContext.tsx";
+import Modal from "../components/Modal";
 
 const apiKey =  import.meta.env.VITE_API_KEY;
 
 const MovieDetails = () => {
+
+    const [showModal, setShowModal] = useState(false);
 
     const { theme } = useContext(ThemeContext);
 
@@ -35,15 +38,13 @@ const MovieDetails = () => {
 
             <img src={imageUrl} alt={data.title}/>
             <p>Rating: ⭐️ {data.vote_average?.toFixed(1)}</p>
-            <button
-                onClick={() =>
-                    dispatch(
-                        isInWatchlist
-                            ? removeFromWatchlist(data.id)
-                            : addToWatchlist(data)
-                    )
-                }
-            >
+            <button onClick={() => {
+                if (isInWatchlist) {
+                    dispatch(removeFromWatchlist(data.id));
+                } else {
+                    dispatch(addToWatchlist(data));
+                    setShowModal(true);
+            }}}>
                 {isInWatchlist ? "−" : "＋"}
             </button>
 
@@ -54,6 +55,10 @@ const MovieDetails = () => {
             </div>
 
             <NavLink to="/">Back to Home</NavLink>
+
+            {showModal ? (
+                <Modal dismissModal={() => setShowModal(false)} />
+            ) : null}
 
 
         </div>
