@@ -7,9 +7,9 @@ const Header = () => {
             <h2>NETCINEMA</h2>
 
             <NavLink to="/">Home</NavLink>
-            <NavLink to="/movies">Movies</NavLink>
             <NavLink to="/search">Search</NavLink>
             <NavLink to="/watchlist">Watchlist</NavLink>
+            <NavLink to="/about">About</NavLink>
         </nav>
     )
 }

@@ -1,10 +1,10 @@
-import Home from "./pages/Home.tsx";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Movies from "./pages/Movies.tsx";
-import MovieDetails from "./pages/MovieDetails.tsx";
-import Search from "./pages/Search.tsx";
-import Watchlist from "./pages/Watchlist.tsx";
-import Header from "./components/Header.tsx";
+import Home from "./pages/Home";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import About from "./pages/About";
+import MovieDetails from "./pages/MovieDetails";
+import Search from "./pages/Search";
+import Watchlist from "./pages/Watchlist";
+import Header from "./components/Header";
 import "./App.css";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/movies" element={<Movies />} />
+          <Route path="/about" element={<About />} />
           <Route path="/movies/:id" element={<MovieDetails />} />
           <Route path="/search" element={<Search />} />
           <Route path="/watchlist" element={<Watchlist />} />
