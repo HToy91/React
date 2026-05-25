@@ -1,8 +1,13 @@
+/*Header*/
 nav {
   display: flex;
   gap: 20px;
   padding: 20px;
-  background-color: black;
+  background: linear-gradient(
+    to bottom,
+    black 70%,
+    transparent 100%
+  );
 }
 nav a {
   text-decoration: none;
@@ -15,3 +20,4 @@ nav h2 {
   color: red;
   font-weight: bold;
 }
+/*Header-End*/

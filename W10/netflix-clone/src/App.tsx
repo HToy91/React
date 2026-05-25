@@ -5,7 +5,7 @@ import MovieDetails from "./pages/MovieDetails.tsx";
 import Search from "./pages/Search.tsx";
 import Watchlist from "./pages/Watchlist.tsx";
 import Header from "./components/Header.tsx";
-import "./App.css"
+import "./App.css";
 
 function App() {
   return (
