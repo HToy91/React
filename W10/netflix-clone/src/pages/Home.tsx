@@ -1,5 +1,6 @@
 import useFetch from "../hooks/useFetch.ts";
 import type { Movie } from "../types/Movie.ts";
+import MovieCard from "../components/MovieCard.tsx";
 
 const apiKey = import.meta.env.VITE_API_KEY;
 
@@ -15,8 +16,20 @@ const Home = () => {
     if (error) return <h1>Error: {error}</h1>;
 
     return (
-        <div>
-            <h1>Trending Movies</h1>
+        <div className="Home">
+            {/*<h1>Trending</h1>*/}
+
+            <div className="Home-data">
+                {data?.results.map((movie) => (
+                    <MovieCard key={movie.id} movie={movie} />
+                ))}
+                {data?.results.map((movie) => (
+                    <MovieCard key={movie.id} movie={movie} />
+                ))}
+                {data?.results.map((movie) => (
+                    <MovieCard key={movie.id} movie={movie} />
+                ))}
+            </div>
         </div>
     );
 }

@@ -5,9 +5,12 @@ nav {
   padding: 20px;
   background: linear-gradient(
     to bottom,
-    black 70%,
+    black 40%,
     transparent 100%
   );
+  position: fixed;
+  transition: background 0.3s ease;
+  width: 100%;
 }
 nav a {
   text-decoration: none;
@@ -21,3 +24,30 @@ nav h2 {
   font-weight: bold;
 }
 /*Header-End*/
+
+/*MovieCard*/
+.movie-card {
+  width: 200px;
+  color: white;
+}
+.movie-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+/*MovieCard-End*/
+
+/*Home*/
+.Home {
+  padding: 20px;
+  background-color: black;
+  min-height: 100vh;
+}
+.Home h1 {
+  color: white;
+}
+.Home-data {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+/*Home-End*/
