@@ -33,7 +33,7 @@ const MovieDetails = () => {
         <div className="Movie-Details">
 
             <img src={imageUrl} alt={data.title}/>
-            <p>Rating: ⭐️ {data.vote_average?.toFixed(2)}</p>
+            <p>Rating: ⭐️ {data.vote_average?.toFixed(1)}</p>
             <button
                 onClick={() =>
                     dispatch(

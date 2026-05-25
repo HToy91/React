@@ -15,7 +15,7 @@ const MovieCard = ({ movie }: MovieCardProps) => {
 
                 <h3>{movie.title}</h3>
 
-                <p>⭐️ {movie.vote_average?.toFixed(2)}</p>
+                <p>⭐️ {movie.vote_average?.toFixed(1)}</p>
             </div>
 
         </NavLink>
