@@ -33,6 +33,15 @@ const Home = () => {
                 {data?.results.map((movie) => (
                     <MovieCard key={movie.id} movie={movie} />
                 ))}
+                {data?.results.map((movie) => (
+                    <MovieCard key={movie.id} movie={movie} />
+                ))}
+                {data?.results.map((movie) => (
+                    <MovieCard key={movie.id} movie={movie} />
+                ))}
+                {data?.results.map((movie) => (
+                    <MovieCard key={movie.id} movie={movie} />
+                ))}
             </div>
         </div>
     );
