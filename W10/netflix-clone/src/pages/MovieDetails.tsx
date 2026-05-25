@@ -1,4 +1,4 @@
-import { useParams}  from "react-router-dom";
+import {NavLink, useParams} from "react-router-dom";
 import useFetch from "../hooks/useFetch.ts";
 import type { Movie } from "../types/Movie.ts";
 
@@ -28,6 +28,8 @@ const MovieDetails = () => {
                 <p>{data.overview}</p>
                 <p style={{fontWeight: "bold"}}>Release Date: {data.release_date}</p>
             </div>
+
+            <NavLink to="/">Back to Home</NavLink>
 
 
         </div>
