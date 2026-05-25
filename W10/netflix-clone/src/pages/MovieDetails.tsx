@@ -3,14 +3,15 @@ import useFetch from "../hooks/useFetch.ts";
 import type { Movie } from "../types/Movie.ts";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../app/store";
-import {
-    addToWatchlist,
-    removeFromWatchlist,
-} from "../features/watchlist/watchlistSlice.ts";
+import { addToWatchlist, removeFromWatchlist } from "../features/watchlist/watchlistSlice.ts";
+import {useContext} from "react";
+import {ThemeContext} from "../context/ThemeContext.tsx";
 
 const apiKey =  import.meta.env.VITE_API_KEY;
 
 const MovieDetails = () => {
+
+    const { theme } = useContext(ThemeContext);
 
     const dispatch = useDispatch<AppDispatch>();
 
@@ -30,7 +31,7 @@ const MovieDetails = () => {
     const imageUrl =  `https://image.tmdb.org/t/p/w500${data.poster_path}`;
 
     return (
-        <div className="Movie-Details">
+        <div className="Movie-Details" style={{ backgroundColor: theme.background, color: theme.foreground }}>
 
             <img src={imageUrl} alt={data.title}/>
             <p>Rating: ⭐️ {data.vote_average?.toFixed(1)}</p>

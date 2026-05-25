@@ -1,5 +1,15 @@
+import {useContext} from "react";
+import {ThemeContext} from "../context/ThemeContext.tsx";
+
 const Search = () => {
-    return <h1 style={{marginTop: "100px"}}>Search Page</h1>
+
+    const { theme } = useContext(ThemeContext);
+    return (
+        <div style={{marginTop: "100px", backgroundColor: theme.background, color: theme.foreground }}>
+            <h1>Search Page</h1>
+
+        </div>
+    )
 }
 
 export default Search

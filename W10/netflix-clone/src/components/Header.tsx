@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom"
+import {ToggleSwitch} from "./ToggleSwitch.tsx";
 
 const Header = () => {
     return (
@@ -10,6 +11,8 @@ const Header = () => {
             <NavLink to="/search">Search</NavLink>
             <NavLink to="/watchlist">Watchlist</NavLink>
             <NavLink to="/about">About</NavLink>
+
+            <ToggleSwitch />
         </nav>
     )
 }

@@ -1,13 +1,17 @@
 import { useSelector} from "react-redux";
 import type { RootState } from "../app/store";
 import {NavLink} from "react-router-dom";
+import {useContext} from "react";
+import {ThemeContext} from "../context/ThemeContext.tsx";
 
 const Watchlist = () => {
+
+    const { theme } = useContext(ThemeContext);
 
     const movies = useSelector((state: RootState) => state.watchlist.movies);
 
     return (
-        <div className="Home">
+        <div className="Home" style={{ backgroundColor: theme.background, color: theme.foreground }}>
             <h1 style={{marginTop:"50px"}}>Watchlist</h1>
 
             <div className="Home-data">
@@ -19,7 +23,7 @@ const Watchlist = () => {
                             <NavLink to={`/movies/${movie.id}`}>
                                 <img src={imageUrl} alt={movie.title}/>
 
-                                <h2 style={{textDecoration: "none", color: "white"}}>{movie.title}</h2>
+                                <h2 style={{textDecoration: "none", color: theme.foreground}}>{movie.title}</h2>
 
                             </NavLink>
                         </div>
