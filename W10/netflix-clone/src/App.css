@@ -39,6 +39,9 @@ nav h2 {
   transform: scale(1.30);
   transition: transform 0.7s ease;
 }
+.movie-card-link {
+  text-decoration: none;
+}
 /*MovieCard-End*/
 
 /*Home*/
@@ -56,3 +59,36 @@ nav h2 {
   gap: 20px;
 }
 /*Home-End*/
+
+/*Movie-Details*/
+.Movie-Details {
+  padding: 20px;
+  background-color: black;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.Movie-Details img {
+  width: 300px;
+  border-radius: 10px;
+  margin-top: 50px;
+}
+.Movie-Details-Content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  gap: 20px;
+  max-width: 700px;
+  text-align: justify;
+  line-height: 1.8;
+}
+.Movie-Details-Content h1 {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+/*Movie-Details-End*/
